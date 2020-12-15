@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Registry
+{% endblock %}
+
+
+{% block content %}
+    <div class="alert alert-info" role="alert">
+        <h1> Registration </h1>
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-primary">Log up</button>
+    </form>
+{% endblock %}

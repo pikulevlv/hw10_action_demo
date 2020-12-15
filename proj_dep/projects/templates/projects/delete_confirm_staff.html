@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{object.name}}' delete
+{% endblock %}
+
+{% block content %}
+    <div class="alert alert-info" role="alert">
+        <h1> Fair employee </h1>
+    </div>
+    Are you shure to fair {{object.name}}?
+
+
+    <hr>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-danger">Yes, fair {{object.name}}</button>
+    </form>
+
+
+{% endblock %}

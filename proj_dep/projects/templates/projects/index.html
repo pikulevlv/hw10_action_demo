@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Start page
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="alert alert-info" role="alert">
+        <h1> Main information </h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <h4><b>Team:</b> {{ staff_units }} professionals</h4>
+                <h4><b>Projects:</b> {{ proj_units }}</h4>
+                <h4><b>Directions:</b> {{ dir_units }}</h4>
+                <h4><b>State list positions:</b> {{ sl_units }}</h4>
+                <h4><b>Sertificates:</b> {{ sert_units }}</h4>
+            </div>
+            <div class="col-8">
+                <iframe class="embed-responsive-16by9"
+                src="https://www.youtube.com/embed/qrwlk7_GF9g"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+    </div>
+    <br>
+
+</div>
+{% endblock %}

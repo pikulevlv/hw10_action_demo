@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Projects
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="alert alert-info" role="alert">
+        <h1> Projects </h1>
+    </div>
+
+    <div class="container">
+        <h3> All projects </h3>
+            <table class="table table-hover">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Project</th>
+              <th scope="col">Description</th>
+              <th scope="col">Extra...</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for unit in object_list %}
+            <tr>
+              <th scope="row">{{ forloop.counter }}</th>
+              <td>{{ unit.name }}</td>
+              <td>{{ unit.description }}</td>
+              <td><a href="{% url 'projects:projects_detail' unit.pk %}">more...</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+            </table>
+    </div>
+
+
+</div>
+
+
+{% endblock %}
+

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Roles
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="alert alert-info" role="alert">
+        <h1> Roles </h1>
+    </div>
+
+    <div class="container">
+        <h3> All roles </h3>
+        <div class="row">
+            <div class="col col-12 col-md-8 col-lg-6 col-xl-4">
+                <ul class="list-group">
+                    {% for unit in object_list %}
+                    <li class="list-group-item"> {{ unit.name }} {{ unit.proj }}
+                        <br>{{ unit.staff }} <br>
+                        <a href="{% url 'projects:roles_detail' unit.pk %}">more...
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

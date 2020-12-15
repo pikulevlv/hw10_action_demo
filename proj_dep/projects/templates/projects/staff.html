@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Staff
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="alert alert-info" role="alert">
+        <h1> Main </h1>
+    </div>
+
+    <div class="container">
+        <h3> All members </h3>
+        <div class="row">
+            <div class="col col-12 col-md-8 col-lg-6 col-xl-4">
+                <ul class="list-group">
+                    {% for unit in object_list %}
+                    <li class="list-group-item">
+                        {% if unit.image %}
+                            <img class="img rounded-circle" width="50px"
+                                 height="50px" src="{{ unit.image.url }}" alt="employee">
+                        {% else %}
+                            <img class="img rounded-circle" width="50px"
+                                 height="50px" src="media/staff/staff_default.png" alt="employee">
+                        {% endif %}
+                        <a href="{% url 'projects:staff_detail' unit.pk %}">{{ unit.name }}</a>
+
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% if user.is_authenticated %}
+        <br>
+        <a href="{% url 'projects:create_staff' %}"
+           class="btn btn-primary">Hair a new employee</a>
+        {% else %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

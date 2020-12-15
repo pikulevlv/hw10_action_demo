@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ object.name }}
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="alert alert-info" role="alert">
+        <h1> Personal page </h1>
+    </div>
+    <br>
+    <h3><b>NAME:</b> {{ object.name }} {{ object.surname }}</h3>
+        {% if object.image %}
+        <img class="img" width="150px"
+        height="150px" src="{{ object.image.url }}" alt="employee">
+        {% endif %}
+    {% if object.is_staff == True %}
+    <h3><b>STAFF LIST POSITION:</b>
+        <ul>
+        {% for position in object.sl_position.all %}
+            <li> {{ position }}</li>
+        {% endfor %}
+        </ul>
+        </h3>
+    {% else %}
+    <h3>freelance </h3>
+    {% endif %}
+
+    <h3><b>SALARY:</b> {{ object.salary }} RUB</h3>
+    <h3><b>DIRECTIONS:</b>
+        <ul>
+        {% for direction in object.direct.all %}
+        <li> {{ direction }}</li>
+        {% endfor %}
+        </ul>
+    </h3>
+        <h3><b>SERTIFICATES:</b>
+        <ul>
+            {% for sert in object.serts.all %}
+            <li>{{sert}}</li>
+            {% endfor %}
+        </ul>
+        </h3>
+
+    {% if object.profile %}
+    <h3><b>PROFILE:</b>
+    <a href="{{ unit.profile.url }}" download>download</a>
+    {% endif %}
+
+    <hr>
+    <a href="{% url 'projects:update' pk=object.pk %}" class="btn btn-primary">Edit {{object.name}}</a>
+    <a href="{% url 'projects:delete' pk=object.pk %}" class="btn btn-danger">Delete {{object.name}}</a>
+
+</div>
+{% endblock %}

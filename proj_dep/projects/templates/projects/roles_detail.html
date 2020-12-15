@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Role {{ object.pk }}
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="alert alert-info" role="alert">
+        <h1> Role {{ object.pk }} </h1>
+    </div>
+
+    <div class="container">
+        <h4>Role {{ object.pk }}</h4>
+    </div>
+
+    <hr>
+    <a href="{% url 'projects:update_role' pk=object.pk %}" class="btn btn-primary">Edit {{object.name}}</a>
+    <a href="{% url 'projects:delete_role' pk=object.pk %}" class="btn btn-danger">Delete {{object.name}}</a>
+
+</div>
+{% endblock %}

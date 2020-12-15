@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Project {{ object.pk }}
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid d-done">
+    <div class="alert alert-info" role="alert">
+        <h1> Project {{ object.pk }} </h1>
+    </div>
+
+    <div class="container">
+        <h4>Project {{ object.name }}</h4>
+        <i>Project {{ object.description }}</i>
+    </div>
+
+    <hr>
+    <a href="{% url 'projects:update_project' pk=object.pk %}" class="btn btn-primary">Edit {{object.name}}</a>
+    <a href="{% url 'projects:delete_project' pk=object.pk %}" class="btn btn-danger">Delete {{object.name}}</a>
+
+</div>
+
+{% endblock %}
