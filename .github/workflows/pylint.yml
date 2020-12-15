@@ -22,6 +22,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistic
     - name: Install dependencies
       run: |
+        pip install poetry
         cd proj_dep/
         poetry install
         poetry shell
