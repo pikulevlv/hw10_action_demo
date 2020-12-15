@@ -28,4 +28,5 @@ jobs:
         pip install pylint
     - name: Run unittest
       run: |
+        cd proj_dep/
         python manage.py test
